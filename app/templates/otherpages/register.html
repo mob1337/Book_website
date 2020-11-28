@@ -1,0 +1,49 @@
+
+{% extends 'homepage/homepage.html' %}
+{% block head %}
+{% load static %}
+
+<body>
+  <br><br>
+  <div class="container">
+    {% csrf_token %}
+
+    <form action = "register.html" method="POST">
+      <p>Enter your first name:<input type="text" name="first_name" placeholder="First Name"><br>
+      <p>Enter your last name:<input type="text" name="last_name" placeholder="last Name"><br>
+      <p>Enter your username:<input type="text" name="username" placeholder="username"><br>
+
+      <p>Enter your email:<input type="text" name="email" placeholder="email"><br>
+      <p>Enter a strong password:<input type="password" name="password" placeholder="password"><br></br>
+        <button class="btn waves-effect waves-light"  input type="submit" name="action">Submit
+        <i class="material-icons right">send</i>
+        </button>
+        <h3>Already a member?</h3>
+        <a href="login.html" class="waves-effect waves-light btn-large"><i class="material-icons left">arrow_forward</i>login!</a>
+
+
+     {% csrf_token %}
+</div>
+
+    {% for message in messages %}
+
+    <script>
+     alert('{{message}}')
+    </script>
+    {% endfor %}
+
+
+
+
+<script type="text/javascript" src="{% static 'js/materialize.min.js' %}"></script>
+<script src="{% static 'js/materialize.js' %}"></script>
+
+
+
+
+
+<script>
+    M.AutoInit();
+</script>
+</body>
+{% endblock %}

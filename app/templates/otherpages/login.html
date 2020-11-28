@@ -1,0 +1,38 @@
+{%  extends 'homepage/homepage.html' %}
+{% block head %}
+<html>
+<head>
+
+</head>
+<body >
+  {% csrf_token %}
+
+  <div class= "container" style="width: 300px ">
+    <br><br>
+
+  <form action = "login.html" method="POST">
+    <p>Enter your username:<input type="text" name="username" placeholder="username"><br>
+    <p>Enter your password:<input type="password" name="password" placeholder="password"><br></br>
+      <button class="btn waves-effect waves-light btn-large"  input type="submit" name="action">Login
+      <i class="material-icons right">arrow_forward</i>
+      </button>      {% csrf_token %}
+      <br><br>
+      <p>Not a member?</p>
+  <a href="register.html" class="waves-effect waves-light btn-large"><i class="material-icons left">arrow_upward</i>Sign UP!</a>
+
+</form>
+
+    </div>
+
+
+
+</body>
+{% endblock %}
+
+
+{% for message in messages %}
+<script>
+ alert('{{message}}')
+</script>
+{% endfor %}
+</html>

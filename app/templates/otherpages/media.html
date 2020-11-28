@@ -1,0 +1,51 @@
+{%  extends 'homepage/homepage.html' %}
+{% block head %}
+
+<head>
+  </head>
+  <body>
+    {% load static %}
+    <br><br><br>
+    {% if user.is_authenticated %}
+<div class="container">
+    <img src="{{ img }}" width="250" height="350">
+    <br><br>
+
+    <h6>Book Name:<b> {{Book_name}}</h6>
+    <h6>Author: <a href="login.html">{{Author}}</a></h6>
+    <h6>Summary: </h6>
+    <p>{{description}}</p>
+    <h6>Category: <a href="login.html">{{cate}}</a> </h6>
+    <h6><a href="https://www.goodreads.com/buy_buttons/14/follow?book_id={{id}}">Buy From Amazon</a></h6>
+
+
+<h6>Buy From Flipkart</h6>
+    <div class="row">
+    {% for i in flipkart %}
+
+    <div class="col s2 m3">
+      <div class = container>
+      <div class="card medium">
+        <div class="card-image">
+          <img src="{{img}}">
+        </div>
+        <p>{{i.title}}</p>
+    <div class="card-action">
+          <a href="https://www.flipkart.com/search?q={{original}}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off">Buy: {{i.price}} </a><br>
+          <a>{{i.disc}} </a>
+        </div>
+      </div>
+    </div>
+    </div>
+    {% endfor %}
+
+    </div>
+
+    <h6><a href="https://markmybook.com/search.php?search={{original}}">Buy from Mark My Book</a></h6>
+
+    {% else %}
+    <h1> please login </h1>
+    {% endif %}
+</div>
+    </body>
+    {% endblock %}

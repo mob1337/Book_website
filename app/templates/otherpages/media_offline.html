@@ -1,0 +1,27 @@
+{%  extends 'homepage/homepage.html' %}
+{% block head %}
+
+<head>
+  </head>
+  <body>
+    {% load static %}
+    <br><br><br>
+    {% if user.is_authenticated %}
+    <div class="container">
+        <img src="{{img}}" width="250" height="350">
+        <br><br>
+
+        <h6>Book Name:<b>{{name}} </h6>
+        <h6>Author:{{author}} <a href="login.html"></a></h6>
+        <h6>Summary: {{des}}</h6>
+
+        <h6><a href="https://www.flipkart.com/search?q={{name}}&otracker=search&otracker1=search&marketplace=FLIPKART&as-show=on&as=off">Buy from Flipkart</a></h6>
+        <h6><a href="https://markmybook.com/search.php?search={{name}}">Buy from Mark My Book</a></h6>
+        <p></p>
+
+    </div>
+        </body>
+    {% else %}
+    <h1>Please login</h1>
+    {% endif %}
+    {% endblock %}
